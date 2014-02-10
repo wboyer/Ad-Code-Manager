@@ -847,6 +847,9 @@ class Ad_Code_Manager {
 			return;
 
 		$code_to_display = $this->get_matching_ad_code( $tag_id );
+		// If nothing matched, get out
+		if ( empty( $code_to_display ) )
+			return;
 
 		// Run $url aganist a whitelist to make sure it's a safe URL
 		if ( !$this->validate_script_url( $code_to_display['url'] ) )
